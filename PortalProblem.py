@@ -101,8 +101,11 @@ class PortalProblem:
                 valid_states.append((state[0], state[1], state[2], portalable_wall))
                 continue
 
-            valid_states.append((state[0], state[1], state[2], portalable_wall))
+            # Replacing the first portal
             valid_states.append((state[0], state[1], portalable_wall, state[3]))
+
+            # Replacing the second portal
+            valid_states.append((state[0], state[1], state[2], portalable_wall))
 
         return valid_states
 
@@ -116,7 +119,6 @@ class PortalProblem:
             print(self.__determine_move(solution[i - 1], solution[i]))
             self.portal_map.illustrate_map_state(solution[i])
             time.sleep(1)
-
 
     @staticmethod
     # Returns a string of the move made between the two states
@@ -147,7 +149,7 @@ class PortalProblem:
             return string
 
         if state1[3] != state2[3]:
-            string = f"Robot placed its second portal at {(state2[3][0], state2[3][1])} facing {directions[state2[2][2]]}"
+            string = f"Robot placed its second portal at {(state2[3][0], state2[3][1])} facing {directions[state2[3][2]]}"
             return string
 
     @staticmethod

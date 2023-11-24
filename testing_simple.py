@@ -12,7 +12,8 @@ mediumProblem = PortalProblem(mediumMap)
 # mediumProblem.illustrate_solution(path)
 mediumProblem.find_solution_bfs((mediumMap.width - 2, 0), (0, 0), True)
 portal_astar_search(mediumProblem, (mediumMap.width - 2, 0), (0, 0), portal_manhattan_heuristic, print_info=True)
-portal_astar_search(mediumProblem, (mediumMap.width - 2, 0), (0, 0), manhattan_including_portals, print_info=True)
+path = portal_astar_search(mediumProblem, (mediumMap.width - 2, 0), (0, 0), manhattan_including_portals, print_info=True)
+mediumProblem.illustrate_solution(path)
 
 
 
